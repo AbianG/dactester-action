@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Test a md file
         id: hello
-        uses: actions/dactester-action@0.01
+        uses: AbianG/dactester-action@0.01
         with:
           file-to-test: 'filepath_fails.md'
       # Use the output from the `hello` step
