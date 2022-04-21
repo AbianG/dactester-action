@@ -10,7 +10,7 @@ jobs:
 
       - name: Perform test for markdown files
         id: RunTests
-        uses: AbianG/dactester-action@v0.06
+        uses: AbianG/dactester-action@master
         with:
           folderPath: 'tests'
       # Use the output from the `hello` step
