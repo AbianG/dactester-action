@@ -5,15 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     name: Job test version
     steps:
-      - uses: actions/checkout@v2
-        with:
-          lfs: true
+      - name: Perform repository checkout
+        uses: actions/checkout@v2
 
-      - name: Test a md file
-        id: hello
+      - name: Perform test for markdown files
+        id: RunTests
         uses: AbianG/dactester-action@v0.05
         with:
-          file-to-test: 'filepath_fails.md'
+          folderPath: 'tests'
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The results are ${{ steps.hello.outputs.results }}"

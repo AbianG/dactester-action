@@ -2,10 +2,10 @@
 name: 'Doc-as-Code tester action'
 description: 'Perform testing for doc-as-code source files'
 inputs:
-  file-to-test:
-    description: 'Markdown file to test on'
+  folderPath:
+    description: 'Markdown folder containing files to test on'
     required: true
-    default: 'test.md'
+    default: 'src'
 outputs:
   results:
     description: 'Strings with the results of the test'
@@ -13,4 +13,4 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.file-to-test }}
+    - ${{ inputs.folderPath }}
