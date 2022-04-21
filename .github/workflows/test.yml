@@ -3,11 +3,11 @@ on: [push, workflow_dispatch]
 jobs:
   dac-test-job:
     runs-on: ubuntu-latest
-    name: A job to test the tester *gasps*
+    name: Job test version
     steps:
       - name: Test a md file
         id: hello
-        uses: AbianG/dactester-action@v0.02
+        uses: AbianG/dactester-action@v0.03
         with:
           file-to-test: 'filepath_fails.md'
       # Use the output from the `hello` step
