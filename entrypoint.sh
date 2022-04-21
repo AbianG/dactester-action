@@ -6,4 +6,5 @@ for file in $(find ./folderToTest -type f -name '*.md'); do
           done
 
 echo "Testing for workspace"
-cat /github/workspace/README.md
+ls /github/workspace
+cat /github/workspace/readme.md
