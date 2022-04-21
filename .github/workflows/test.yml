@@ -15,4 +15,4 @@ jobs:
           folderPath: 'tests'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The results are ${{ steps.hello.outputs.results }}"
+        run: echo "The results are ${{ steps.RunTests.outputs.results }}"
