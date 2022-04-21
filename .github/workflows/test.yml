@@ -5,6 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Job test version
     steps:
+      - uses: actions/checkout@v2
+        with:
+          lfs: true
+
       - name: Test a md file
         id: hello
         uses: AbianG/dactester-action@v0.05
