@@ -1,0 +1,47 @@
+line-before-test:
+  - type: line-before
+  - desc: "Line 1 is before Line 2"
+  - first: "Line 1"
+  - after: "Line 2"
+
+line-after-test:
+  - type: line-after
+  - desc: "Line 2 is after Line 1"
+  - first: "Line 1"
+  - after: "Line 2"
+
+line-after-test-2:
+  - type: line-after
+  - desc: "Line 3 is after Line 2"
+  - first: "Line 2"
+  - after: "Line 3"
+
+line-is-top-test:
+  - type: line-top
+  - desc: "Line Top is at top of document"
+  - value: "<!-- Space: CLOUDOPERATIONS -->"
+
+line-is-bottom-test:
+  - type: line-bottom
+  - desc: "Line Bottom is at bottom of document"
+  - value: "Bottom"
+
+doc-contains-test:
+  - type: doc-contains
+  - desc: "Document contains a line"
+  - value: "A random line inside"
+  - times: 1
+
+header-present-test:
+  - type: header-present
+  - desc: "Header <<# Title: This is just a test>> present"
+  - value: "Title: This is just a test"
+
+headers-present-in-order-test:
+  - type: headers-present-in-order
+  - desc: "The headers are present and in order"
+  - allow-only-selected-headers: False
+  - headers-list:
+    - "First header"
+    - "Second header"
+    - "Third header"
