@@ -6,4 +6,5 @@ output=$(
             python3 /app/dactester/tester.py $file /github/workspace/ruleconfig.yml || exit 1;
     done
 )
+echo "### Compliance report :clipboard:" >> $GITHUB_STEP_SUMMARY
 echo "::set-output name=results::$output"
