@@ -7,4 +7,9 @@ output=$(
     done
 )
 echo "### Compliance report :clipboard:" >> $GITHUB_STEP_SUMMARY
+input='/app/errors.txt'
+while IFS= read -r line
+do
+  echo "$line"
+done < "$input"
 echo "::set-output name=results::$output"
