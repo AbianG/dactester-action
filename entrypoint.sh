@@ -7,9 +7,10 @@ output=$(
     done
 )
 echo "### Compliance report :clipboard:" >> $GITHUB_STEP_SUMMARY
+echo ">>>>>> Output of errors file start"
 input='/app/errors.txt'
 while IFS= read -r line
 do
   echo "$line"
 done < "$input"
-echo "::set-output name=results::$output"
+echo "<<<<<< Output of errors file end"
