@@ -11,8 +11,8 @@ echo ">>>>>> Output of errors file start"
 input='/app/errors.txt'
 prefix="File: "
 while IFS= read -r line
-echo $line
 do
+  echo $line
   if [[ $line =~ ^File* ]]; then
     echo "$line matches regex for FILEPATH"
     doc_file=$line 
