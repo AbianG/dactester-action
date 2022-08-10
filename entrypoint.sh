@@ -11,11 +11,14 @@ echo ">>>>>> Output of errors file start"
 input='/app/errors.txt'
 prefix="File: "
 while IFS= read -r line
+echo $line
 do
   if [[ $line =~ ^File* ]]; then
+    echo "$line matches regex for FILEPATH"
     doc_file=$line 
     fixed_docfile=$(echo $doc_file | sed -e "s/^$prefix//")
   elif [[ $line =~ ^Title* ]]; then
+    echo "$line matches regex for TITLE"
     #echo "::error file={$fixed_docfile},title=COMPLIANCE FAILED::Errors found  in document"
     echo ":x: COMPLIANCE FAILED FOR DOCUMENT: $fixed_docfile" >> $GITHUB_STEP_SUMMARY
   else
