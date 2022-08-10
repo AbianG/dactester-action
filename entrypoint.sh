@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/bash
 
 output=$(
     for file in $(find /github/workspace/$1 -type f -name '*.md'); do
