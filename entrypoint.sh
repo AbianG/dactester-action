@@ -13,7 +13,7 @@ while IFS= read -r line
 do
   if [[ $line =~ ^Document* ]]; then
     echo "::error file={$line},title=COMPLIANCE FAILED::Errors found  in document"
-    echo ":x: ERRORS FOR DOCUMENT: $line" >> $GITHUB_STEP_SUMMARY
+    echo ":x: COMPLIANCE FAILED FOR DOCUMENT: $line" >> $GITHUB_STEP_SUMMARY
   else
     # echo "$line"
     echo "::error file={$line},title=COMPLIANCE FAILED::$line"
