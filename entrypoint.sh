@@ -15,9 +15,7 @@ do
   if [[ $line =~ ^File* ]]; then
     doc_file=$line 
     fixed_docfile=$(echo $doc_file | sed -e "s/^$prefix//")
-    echo $fixed_docfile
-  fi
-  if [[ $line =~ ^Title* ]]; then
+  elif [[ $line =~ ^Title* ]]; then
     #echo "::error file={$fixed_docfile},title=COMPLIANCE FAILED::Errors found  in document"
     echo ":x: COMPLIANCE FAILED FOR DOCUMENT: $fixed_docfile" >> $GITHUB_STEP_SUMMARY
   else
