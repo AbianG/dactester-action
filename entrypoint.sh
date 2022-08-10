@@ -11,6 +11,12 @@ echo ">>>>>> Output of errors file start"
 input='/app/errors.txt'
 while IFS= read -r line
 do
-  echo "$line"
+  if $line =~ ^Document*; then
+    echo "ERRORS FOR DOCUMENT: $line"
+  else
+    echo "$line"
+  fi
 done < "$input"
 echo "<<<<<< Output of errors file end"
+
+echo "::set-output name=results::$output"
