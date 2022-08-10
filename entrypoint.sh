@@ -13,6 +13,7 @@ while IFS= read -r line
 do
   if [[ $line =~ ^Document* ]]; then
     echo "ERRORS FOR DOCUMENT: $line"
+    echo "::error file={$line},line={0},title=COMPLIANCE FAILED::Errors found  in document"
   else
     echo "$line"
   fi
