@@ -9,14 +9,19 @@ output=$(
 echo "### Compliance report :clipboard:" >> $GITHUB_STEP_SUMMARY
 echo ">>>>>> Output of errors file start"
 input='/app/errors.txt'
+prefix="File: "
 while IFS= read -r line
 do
-  if [[ $line =~ ^Document* ]]; then
+  if [[ $line =~ ^File* ]]; then
+    doc_file=$line 
+    fixed_docfile=$(echo $doc_file | sed -e "s/^$prefix//")
+    echo $fixed_docfile
+   elif [[ $line =~ ^Title* ]]; then
     echo "::error file={$line},title=COMPLIANCE FAILED::Errors found  in document"
     echo ":x: COMPLIANCE FAILED FOR DOCUMENT: $line" >> $GITHUB_STEP_SUMMARY
   else
     # echo "$line"
-    echo "::error file={$line},title=COMPLIANCE FAILED::$line"
+    echo "::error file={$fixed_docfile},title=COMPLIANCE FAILED::$line"
   fi
 done < "$input"
 echo "<<<<<< Output of errors file end"
