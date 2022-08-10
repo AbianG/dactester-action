@@ -11,7 +11,7 @@ echo ">>>>>> Output of errors file start"
 input='/app/errors.txt'
 while IFS= read -r line
 do
-  if $line =~ ^Document*; then
+  if [[ $line =~ ^Document* ]]; then
     echo "ERRORS FOR DOCUMENT: $line"
   else
     echo "$line"
