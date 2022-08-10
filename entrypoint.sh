@@ -12,10 +12,12 @@ input='/app/errors.txt'
 while IFS= read -r line
 do
   if [[ $line =~ ^Document* ]]; then
-    echo "ERRORS FOR DOCUMENT: $line"
-    echo "::error file={$line},line={0},title=COMPLIANCE FAILED::Errors found  in document"
+    # echo "ERRORS FOR DOCUMENT: $line"
+    echo "::error file={$line},title=COMPLIANCE FAILED::Errors found  in document"
+    echo "::error file={$line},title=COMPLIANCE FAILED::Errors found  in document" >> $GITHUB_STEP_SUMMARY
   else
-    echo "$line"
+    # echo "$line"
+    echo "::error file={$line},title=COMPLIANCE FAILED::$line"
   fi
 done < "$input"
 echo "<<<<<< Output of errors file end"
