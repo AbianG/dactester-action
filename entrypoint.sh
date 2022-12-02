@@ -30,7 +30,8 @@ done < "$input"
 echo "<<<<<< Output of errors file end"
 # Present the full application log output 
 echo ">>>>>> Output of full application log start"
-echo "::set-output name=results::$output"
+#echo "::set-output name=results::$output"  DEPRECATED
+echo "results=$output" >> GITHUB_OUTPUT
 echo "<<<<<< Output of full application log end"
 
 # Fail the action if errors are detected
